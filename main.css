@@ -4,6 +4,11 @@ body {
   background: linear-gradient(to right, #3c7289, #244c5d);
 }
 
+img {
+  width: 60px;
+  margin: 0;
+}
+
 #join-btn {
   position: fixed;
   top: 50%;
@@ -34,13 +39,12 @@ body {
 }
 
 button {
-  border-radius: 5%;
+  border-radius: 50%;
   border: none;
-  background-color: #57a8ca;
+  background-color: #00000000;
   color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  margin: 4px;
+  padding: 5px;
+  margin: 40px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
