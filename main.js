@@ -5,6 +5,11 @@ const APP_ID = "2f15e840dcf64849b0f990f2f7979f5e"
 const TOKEN = "00690a069531dc34b2abb8b269dc98fb8c2IACRoXbd/NGnyOa5pritNGM47P//CCEpN864h6oOLxjb+42svfQAAAAAEACOhaHHGFH0YgEAAQAZUfRi"
 const CHANNEL = "dang"
 
+let joinBtn = document.querySelector('#join-btn')
+let leaveBtn = document.querySelector('#leave-btn')
+let micBtn = document.querySelector('#mic-btn')
+let cameraBtn = document.querySelector('#camera-btn')
+
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 // const extension = new BeautyExtension();
 // AgoraRTC.registerExtensions([extension]);
@@ -24,6 +29,8 @@ const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 //         // Set the redness level
 //         rednessLevel: 0.5
 // }); 
+
+
 
 let localTracks = []
 let remoteUsers = {}
@@ -94,31 +101,27 @@ let leaveAndRemoveLocalStream = async () => {
     document.getElementById('video-streams').innerHTML = ''
 }
 
-let toggleMic = async (e) => {
+let toggleMic = async (micBtn) => {
     if (localTracks[0].muted){
         await localTracks[0].setMuted(false)
-        //e.target.innerText = 'Mute'
-        //e.target.style.backgroundColor = '#00000048;'
+        micBtn.target.innerHTML = '<img src="images/Muted.png" />'
     }else{
         await localTracks[0].setMuted(true)
-        //e.target.innerText = 'Unmute'
-        //e.target.style.backgroundColor = '#00000048;'
+        micBtn.target.innerHTML = '<img src="images/Unmuted.png" />'
     }
 }
 
-let toggleCamera = async (e) => {
+let toggleCamera = async (cameraBtn) => {
     if(localTracks[1].muted){
         await localTracks[1].setMuted(false)
-        //e.target.innerText = 'Camera Off'
-        //e.target.style.backgroundColor = '#00000048;'
+        cameraBtn.target.innerHTML = '<img src="images/CameraOff.png" />'
     }else{
         await localTracks[1].setMuted(true)
-        //e.target.innerText = 'Camera On'
-        //e.target.style.backgroundColor = '#00000048;'
+        cameraBtn.target.innerHTML = '<img src="images/CameraOn.png" />'
     }
 }
 
-document.getElementById('join-btn').addEventListener('click', joinStream)
-document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLocalStream)
-document.getElementById('mic-btn').addEventListener('click', toggleMic)
-document.getElementById('camera-btn').addEventListener('click', toggleCamera)
+joinBtn.addEventListener('click', joinStream)
+leaveBtn.addEventListener('click', leaveAndRemoveLocalStream)
+micBtn.addEventListener('click', toggleMic)
+cameraBtn.addEventListener('click', toggleCamera)  

@@ -13,8 +13,7 @@ img {
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-top: -50px;
-  margin-left: -100px;
+  margin: -60px -70px;
   font-size: 18px;
   padding: 20px 40px;
 }
