@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "agora-extension-beauty-effect": "^1.0.0-beta"
+    "agora-extension-beauty-effect": "^1.0.0-beta",
+    "agora-extension-virtual-background": "^1.1.0"
   }
 }

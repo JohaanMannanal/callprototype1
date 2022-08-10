@@ -1,4 +1,5 @@
 // //import BeautyExtension from "./index.d.ts";
+//import VirtualBackgroundExtension from "agora-extension-virtual-background";
 
 const APP_ID = "2f15e840dcf64849b0f990f2f7979f5e"
 const TOKEN = "00690a069531dc34b2abb8b269dc98fb8c2IACRoXbd/NGnyOa5pritNGM47P//CCEpN864h6oOLxjb+42svfQAAAAAEACOhaHHGFH0YgEAAQAZUfRi"
@@ -36,7 +37,6 @@ let joinAndDisplayLocalStream = async () => {
     let UID = await client.join(APP_ID, CHANNEL, TOKEN, null)
 
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()
-    
 
     let player = `<div class="video-container" id="user-container-${UID}">
                         <div class="video-player" id="user-${UID}"></div>
