@@ -9,7 +9,7 @@ let remoteUsers = {}
 
 let joinAndDisplayLocalStream = async () => {
 
-    client.on('user-published', handleUserJoined)
+    client.on('user-published', handleUserJoined) 
     
     client.on('user-left', handleUserLeft)
     
