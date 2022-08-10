@@ -1,8 +1,28 @@
+// //import BeautyExtension from "./index.d.ts";
+
 const APP_ID = "2f15e840dcf64849b0f990f2f7979f5e"
 const TOKEN = "00690a069531dc34b2abb8b269dc98fb8c2IACRoXbd/NGnyOa5pritNGM47P//CCEpN864h6oOLxjb+42svfQAAAAAEACOhaHHGFH0YgEAAQAZUfRi"
 const CHANNEL = "dang"
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
+// const extension = new BeautyExtension();
+// AgoraRTC.registerExtensions([extension]);
+// const processor = extension.createProcessor();
+// localTracks.videoTrack.pipe(processor).pipe(localTracks.videoTrack.processorDestination);
+
+// //await processor.enable();
+// processor.setOptions({
+//         // Set the contrast level as high (2)
+//         lighteningContrastLevel: 2,
+//         // Set the brightness level
+//         lighteningLevel: 0.7,
+//         // Set the smoothness level
+//         smoothnessLevel: 0.6,
+//         // Set the sharpness level
+//         sharpnessLevel: 0.5,
+//         // Set the redness level
+//         rednessLevel: 0.5
+// }); 
 
 let localTracks = []
 let remoteUsers = {}
@@ -15,7 +35,8 @@ let joinAndDisplayLocalStream = async () => {
     
     let UID = await client.join(APP_ID, CHANNEL, TOKEN, null)
 
-    localTracks = await AgoraRTC.createMicrophoneAndCameraTracks() 
+    localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()
+    
 
     let player = `<div class="video-container" id="user-container-${UID}">
                         <div class="video-player" id="user-${UID}"></div>
